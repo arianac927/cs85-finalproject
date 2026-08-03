@@ -21,8 +21,20 @@ class AiContentService
     private function buildPrompt(string $title): string
     {
         return "Create a Magic: The Gathering Commander legal format deck based on {$title}.
-        Write a description at the top of the deck based on the user's tone.
-        Make sure the content is cohesive, easy to follow, and work-appropriate.";
+        Requirements:
+        - The deck has to contain exactly 100 cards, including the commander.
+        - Include 1 legendary creature as the commander unless the user asks for a different commander configuration.
+        - Follow Magic: The Gathering commander color identity rules, so no cards that go against the given commander's color identity.
+        - Do not include cards banned in Commander format.
+        - Only use real Magic: The Gathering cards, so do not invent card names, abilities, mana costs, types, or other card information.
+        - Ensure all cards listed work well with the requested commander or deck strategy.
+        - Ensure there's an appropriate balance of each card type with at least 30 lands.
+        - Write a description before the decklist explaining the strategy of the deck.
+        - Ensure the decklist is organized according to card type and that each card is placed in the correct category:
+        commander, creatures, lands, sorceries, instants, enchantments, artifacts, and planeswalkers.
+        - Ensure the decklist is well-organized and easy to follow.
+        - Ensure the entire content is work-appropriate.
+        - If you are uncertain about a card, use a different card.";
     }
 
     private function makeGeminiRequest(string $prompt): array
@@ -34,14 +46,14 @@ class AiContentService
             ])->post(config('services.gemini.url') . '/models/' . config('services.gemini.model') . ':generateContent',
             [
                 'systemInstruction' => [
-                    'parts' => [['text' => 'You are a friendly and fun writing assistant.']],
+                    'parts' => [['text' => 'You are a meticulous Magic: The Gathering deck-building assistant.']],
                 ],
                 'contents' => [
                     ['parts' => [['text' => $prompt]]],
                 ],
                 'generationConfig' => [
-                'temperature'      => 0.7,
-                'maxOutputTokens'  => 2000,
+                'temperature'      => 0.2,
+                'maxOutputTokens'  => 5000,
                 ],
             ]);
 
