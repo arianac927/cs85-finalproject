@@ -56,3 +56,12 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+PROJECT DESCRIPTION:
+One of my favorite hobbies is playing Magic: The Gathering, and aside from playing with friends, one of my favorite parts of the card game is creating decks.
+I've been looking up ideas for new decks lately, but because I have quite a lot of decks already, it's getting a little more difficult finding something new to make and play.
+I thought it would be cool to make a Deck Generator with AI, an assistant that helps you create a MTG deck based on your description.
+I figured 'the simple, the better', so there's only one area where you would type out what you're looking for and the AI generates a full 100-card deck for you to play (100 cards is the standard amount for the Commander format, which is the format my friends and I play).
+I also thought this would be a great idea for me to create because I'm extremely familiar with the card game and would be able to spot any errors within the AI generated response.
+As aforementioned, the generator is very simple, so there's nothing to it other than typing out a response within the webpage, and the description can be as advanced and well-versed as you'd like or as basic and beginner-friendly as you'd like.
