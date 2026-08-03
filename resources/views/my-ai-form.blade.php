@@ -6,9 +6,12 @@
         <title>My AI App</title>
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
-    <body class="bg-gray-100">
+    <body class="bg-amber-100">
         <div class="container mx-auto mt-6 max-w-2xl px-4">
-            <h1 class="text-2xl font-bold mb-4">MTG Commander Deck Generator</h1>
+            <img src="{{ asset('images/my-ai-form-png.png') }}"
+            alt="My AI Form Logo"
+            class="w-48 mx-auto mb-4">
+            <h1 class="text-4xl font-extrabold tracking-wide text-blue-600 drop-shadow-md mb-6">MTG Commander Deck Generator</h1>
 
             <form method="POST" action="{{ route('ai.generate') }}">
                 @csrf
@@ -20,7 +23,7 @@
                 @error('title') <div class="text-red-600 mt-1">{{ $message }}</div>
                 @enderror
 
-                <button type="submit" class="bg-blue-600 text-white px-4 py-2 mt-4 rounded">Generate</button>
+                <button type="submit" class="bg-emerald-600 text-white px-4 py-2 mt-4 rounded">Generate</button>
             </form>
 
             @error('error') <div class="text-red-600 mt-4">{{ $message }}</div>

@@ -22,7 +22,7 @@ class AiContentService
     {
         return "Create a Magic: The Gathering Commander legal format deck based on {$title}.
         Write a description at the top of the deck based on the user's tone.
-        Make sure the content is cohesive and easy to follow.";
+        Make sure the content is cohesive, easy to follow, and work-appropriate.";
     }
 
     private function makeGeminiRequest(string $prompt): array
@@ -41,7 +41,7 @@ class AiContentService
                 ],
                 'generationConfig' => [
                 'temperature'      => 0.7,
-                'maxOutputTokens'  => 500,
+                'maxOutputTokens'  => 2000,
                 ],
             ]);
 
